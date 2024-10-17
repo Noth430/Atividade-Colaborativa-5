@@ -5,6 +5,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 # Criando banco de dados.
 db = create_engine("sqlite:///meubanco.db")
 
+lista_funcionario = []
 # Criando conexão com banco de dados.
 Session = sessionmaker(bind=db)
 session = Session()
@@ -58,7 +59,6 @@ def menu():
           """)
 
 
-
 while True:
     menu()
     opcao = input("digite seu numero: ")
@@ -66,7 +66,7 @@ while True:
         case "1": 
             nome = input("Digite seu nome: ")
             idade = int(input("Digite sua idade: "))
-            cpf_usuario = int(input("Digite seu : "))
+            cpf_usuario = int(input("Digite seu CPF: "))
             setor = input("Digite seu setor: ")
             funcao = input("Digite sua função: ")
             salario = float(input("Digite seu salario: "))
