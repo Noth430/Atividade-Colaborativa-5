@@ -26,7 +26,7 @@ class Funcionario(Base):
     telefone = Column("telefone", Float)
     
     
-    def __init__(self, nome, idade, cpf, setor, funcao, salario, telefone):
+    def __init__(self, nome , idade, cpf, setor, funcao, salario, telefone):
         self.nome = nome
         self.idade = idade
         self.cpf = cpf
@@ -77,12 +77,18 @@ while True:
             session.commit()
             limpar_tela()
 
-        case "2":
-            cpf_usuario = int(input("coloque seu CPF: "))
-            lista_funcionario = session.query(Funcionario).filter_by(cpf = cpf_usuario).first()
-            for usuario in lista_funcionario:
-                print(f"{usuario.cpf} - {usuario.nome} - {usuario.idade} - {usuario.setor} - {usuario.funcao}- {usuario.salario}- {usuario.tefone}")
+        case "2":  # Consultar funcionário
+            cpf_usuario = int(input("Coloque o CPF: "))
+            funcionario = session.query(Funcionario).filter_by(cpf=cpf_usuario).first()  # Obtém o primeiro funcionário com o CPF
+    
+            if funcionario:  # Verifica se encontrou o funcionário
+                print(f"CPF: {funcionario.cpf} - Nome: {funcionario.nome} - Idade: {funcionario.idade} - Setor: {funcionario.setor} - Função: {funcionario.funcao} - Salário: {funcionario.salario} - Telefone: {funcionario.telefone}")
+            else:
+                print(f"Funcionário com CPF {cpf_usuario} não encontrado.")
+
+            input("Pressione Enter para continuar...")
             limpar_tela()
+
             
         case "3":
             cpf_usuario = int(input("Digite o CPF: "))
@@ -120,7 +126,7 @@ while True:
             
             
             
-                        
+                        c 
             
             
         
