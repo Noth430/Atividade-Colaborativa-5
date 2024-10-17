@@ -5,7 +5,6 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 # Criando banco de dados.
 db = create_engine("sqlite:///meubanco.db")
 
-lista_funcionario = []
 # Criando conexão com banco de dados.
 Session = sessionmaker(bind=db)
 session = Session()
@@ -60,6 +59,7 @@ def menu():
 
 
 while True:
+    lista_funcionario = []
     menu()
     opcao = input("digite seu numero: ")
     match opcao:
@@ -77,6 +77,7 @@ while True:
             session.commit()
             limpar_tela()
 
+
         case "2":  # Consultar funcionário
             cpf_usuario = int(input("Coloque o CPF: "))
             funcionario = session.query(Funcionario).filter_by(cpf=cpf_usuario).first()  # Obtém o primeiro funcionário com o CPF
@@ -87,7 +88,7 @@ while True:
                 print(f"Funcionário com CPF {cpf_usuario} não encontrado.")
 
             input("Pressione Enter para continuar...")
-            limpar_tela()
+
 
             
         case "3":
@@ -123,10 +124,7 @@ while True:
             
         case "0":
             break
-            
-            
-            
-                        c 
+
             
             
         

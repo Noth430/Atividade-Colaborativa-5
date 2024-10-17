@@ -59,4 +59,8 @@ while True:
     opcao = input("Resposta: ")
     match opcao:
         case "1":
-            Funcionario
+            funcionario = Funcionario(
+                nome = input("Digite seu nome: "),
+                idade = int(input("Digite sua idade: ")),
+                
+            )
